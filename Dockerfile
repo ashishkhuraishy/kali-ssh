@@ -1,8 +1,8 @@
 FROM kalilinux/kali-rolling
 
-RUN apt-get update \
-	&& apt-get -y install kali-linux-headless \
-	&& apt-get install -y openssh-server \
+RUN apt update \
+	&& apt -y install kali-linux-headless \
+	&& apt install -y openssh-server \
 	&& mkdir -p /var/run/sshd \
 	&& sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
 	&& sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config \
